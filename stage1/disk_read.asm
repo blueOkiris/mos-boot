@@ -1,5 +1,7 @@
 ; Author: Dylan Turner
-; Description: Read a file from disk
+; Description:
+; - Read kernel from disk and save to "pgrm_space" at 0x8000
+; - On failure, print an error message and halt
 
 [bits 16]
 
