@@ -5,9 +5,13 @@
 
 [global _start]
 
+; When we link, we put the start of stage2 and kernel at 0x8000
+; So this _start label is at 0x8000, where the stage1 kernel jumps to
 _start:
+    ; Immediately, we try to jump into 32 bit mode
     jmp     enter_protected_mode
 
+; Include all of our helper functions
 %include "print.asm"
 %include "gdt.asm"
 %include "idt.asm"
@@ -53,6 +57,7 @@ start_protected_mode:
 
 [bits 64]
 
+; kernel_start is a symbol in Rust
 [extern kernel_start]
 
 start_64_bit:
