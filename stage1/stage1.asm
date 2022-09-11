@@ -1,5 +1,7 @@
 ; Author: Dylan Turner
-; Description: First stage bootloader
+; Description:
+; - First stage bootloader; simply load 2nd stage from disk and jump to it
+; - Initial bootloader is exactly 512 bytes, so to do more set up, we need to exit
 
 [org 0x7C00]
 
