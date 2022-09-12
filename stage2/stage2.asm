@@ -17,7 +17,6 @@ _start:
 ; Include all of our helper functions
 %include "print.asm"
 %include "gdt.asm"
-%include "idt.asm"
 %include "cpuid.asm"
 %include "simple_paging.asm"
 
