@@ -1,5 +1,8 @@
 ; Author: Dylan Turner
-; Description: 2nd stage bootloader to load kernel
+; Description:
+; - 2nd stage bootloader to load kernel
+; - Because this is a 64-bit OS, paging MUST be enabled
+;   thus, it makes sense to do some things in here like set up the GDT
 
 [bits 16]
 
