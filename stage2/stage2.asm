@@ -61,6 +61,7 @@ start_protected_mode:
 [extern kernel_start]
 
 start_64_bit:
+    ; Set a blue color for testing
     mov     edi, 0xB8000
     mov     rax, 0x1F201F201F201F20
     mov     ecx, 500
