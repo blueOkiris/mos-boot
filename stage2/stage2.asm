@@ -52,7 +52,7 @@ start_protected_mode:
     
     call    assert_cpuid
     call    assert_long_mode
-    call    set_up_ident_paging
+    call    set_up_ident_p  aging
     call    edit_gdt
 
     jmp     code_seg:start_64_bit
@@ -69,9 +69,23 @@ start_64_bit:
     mov     ecx, 500
     rep     stosq
 
+    call    activate_sse
     call    kernel_start
 
     jmp     $
+
+; Enable floating point numbers
+activate_sse:
+    mov     rax, cr0
+    and     ax, 0b11111101
+    or      ax, 0b00000001
+    mov     cr0, rax
+
+    mov     rax, cr4
+    or      ax, 0b1100000000
+    mov     cr4, ax
+
+    ret
 
 start_msg:  db "Starting kernel.", 0
 done_msg:   db "Done.", 0
