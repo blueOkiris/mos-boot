@@ -83,7 +83,7 @@ activate_sse:
 
     mov     rax, cr4
     or      ax, 0b1100000000
-    mov     cr4, ax
+    mov     cr4, rax
 
     ret
 
