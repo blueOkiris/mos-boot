@@ -52,7 +52,7 @@ start_protected_mode:
     
     call    assert_cpuid
     call    assert_long_mode
-    call    set_up_ident_p  aging
+    call    set_up_ident_paging
     call    edit_gdt
 
     jmp     code_seg:start_64_bit
