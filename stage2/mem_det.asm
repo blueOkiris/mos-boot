@@ -15,9 +15,9 @@ mem_det:
     mov     es, ax
     mov     di, 0x5000
     mov     edx, 0x534D4150     ; Stands for "SMAP" in Ascii
+    xor     ebx, ebx
 
     ; Increment through each table listing and save to dest via BIOS interrupt
-    mov     ebx, ebx            ; clear for loop
 mem_det_rep:
     mov     eax, 0xE820
     mov     ecx, 24
