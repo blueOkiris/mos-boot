@@ -19,10 +19,12 @@ _start:
 %include "gdt.asm"
 %include "cpuid.asm"
 %include "simple_paging.asm"
+%include "mem_det.asm"
 
 [bits 16]
 
 enter_protected_mode:
+    call    mem_det
     call    enable_a20
     cli
 
